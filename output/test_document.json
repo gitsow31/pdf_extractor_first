@@ -2,9 +2,39 @@
   "title": "Sample Document for Testing",
   "outline": [
     {
-      "level": "H1",
-      "text": "Sample Document for Testing",
+      "level": "H2",
+      "text": "1. Introduction",
       "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "1.1 Background",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "2. Methodology",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "2.1 Data Collection",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "3. Results",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "4. Conclusion",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "3.1 Statistical Analysis",
+      "page": 3
     }
   ]
 }
