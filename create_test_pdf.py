@@ -66,24 +66,24 @@ def create_test_pdf():
     
     # H1 heading
     h1_p3_point = fitz.Point(50, 100)
-    page3.insert_text(h1_p3_point, "3. Results", fontsize=18, fontname="helv-bold")
+    page3.insert_text(h1_p3_point, "3. Results", fontsize=18, color=(0, 0, 0))
     
     # H2 heading
     h2_p3_point = fitz.Point(50, 160)
-    page3.insert_text(h2_p3_point, "3.1 Statistical Analysis", fontsize=15, fontname="helv-bold")
+    page3.insert_text(h2_p3_point, "3.1 Statistical Analysis", fontsize=15, color=(0, 0, 0))
     
     # H3 heading
     h3_p3_point = fitz.Point(70, 200)
-    page3.insert_text(h3_p3_point, "3.1.1 Descriptive Statistics", fontsize=13, fontname="helv-bold")
+    page3.insert_text(h3_p3_point, "3.1.1 Descriptive Statistics", fontsize=13, color=(0, 0, 0))
     
     # Body text
     body_p3_point = fitz.Point(70, 240)
     body_p3_text = "The descriptive statistics show interesting patterns in the data."
-    page3.insert_text(body_p3_point, body_p3_text, fontsize=12, fontname="helv")
+    page3.insert_text(body_p3_point, body_p3_text, fontsize=12, color=(0, 0, 0))
     
     # H1 heading
     h1_conclusion_point = fitz.Point(50, 320)
-    page3.insert_text(h1_conclusion_point, "4. Conclusion", fontsize=18, fontname="helv-bold")
+    page3.insert_text(h1_conclusion_point, "4. Conclusion", fontsize=18, color=(0, 0, 0))
     
     # Save the PDF
     output_path = "/app/input/test_document.pdf"
