@@ -296,6 +296,11 @@ class PDFOutlineExtractor:
         # Detect headings
         headings = self.detect_headings(text_blocks)
         
+        # Debug: log detected headings
+        logger.info(f"Detected {len(headings)} heading candidates")
+        for h in headings:
+            logger.debug(f"Heading: '{h.text}' (Level: {h.level}, Page: {h.page}, Font: {h.font_size}, Score: {h.score:.2f})")
+        
         # Convert to output format
         outline = []
         for heading in headings:
