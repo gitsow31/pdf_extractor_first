@@ -156,11 +156,18 @@ class PDFOutlineExtractor:
         
         heading_candidates = []
         
+        # Get document title first to exclude it from headings
+        title_text = self.extract_document_title(text_blocks).strip()
+        
         for block in text_blocks:
             text = block.text.strip()
             
             # Skip if text is too short or too long
             if len(text) < self.min_heading_length or len(text) > self.max_heading_length:
+                continue
+            
+            # Skip if this is the document title
+            if text == title_text:
                 continue
             
             # Skip if font size is not significantly larger than body text
@@ -170,7 +177,7 @@ class PDFOutlineExtractor:
             # Calculate heading score based on various factors
             score = self.calculate_heading_score(block, body_text_size)
             
-            if score > 0.5:  # Threshold for considering as heading
+            if score > 0.3:  # Lower threshold for better detection
                 level = self.determine_heading_level(block, body_text_size, text_blocks)
                 
                 heading_candidate = HeadingCandidate(
