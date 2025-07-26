@@ -114,7 +114,13 @@ class PDFOutlineExtractor:
             
         # Find most common font size
         size_counter = Counter(font_sizes)
-        return size_counter.most_common(1)[0][0]
+        body_size = size_counter.most_common(1)[0][0]
+        
+        # Debug: log font size distribution
+        logger.debug(f"Font size distribution: {dict(size_counter.most_common())}")
+        logger.debug(f"Detected body text size: {body_size}")
+        
+        return body_size
     
     def extract_document_title(self, text_blocks: List[TextBlock]) -> str:
         """Extract document title from the largest font text on first page."""
