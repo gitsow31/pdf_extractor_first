@@ -262,8 +262,8 @@ class PDFOutlineExtractor:
         if not candidates:
             return []
         
-        # Sort by page and position
-        candidates.sort(key=lambda x: (x.page, x.font_size), reverse=True)
+        # Sort by page and position (y-coordinate)
+        candidates.sort(key=lambda x: (x.page, -x.font_size))
         
         # Remove near-duplicates (same text on same page)
         refined = []
@@ -275,8 +275,8 @@ class PDFOutlineExtractor:
                 refined.append(candidate)
                 seen_texts.add(text_key)
         
-        # Sort by page and logical order
-        refined.sort(key=lambda x: x.page)
+        # Sort by page and preserve logical document order
+        refined.sort(key=lambda x: (x.page, x.text))
         
         return refined
     
