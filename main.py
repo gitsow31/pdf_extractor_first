@@ -228,11 +228,18 @@ class PDFOutlineExtractor:
                                all_blocks: List[TextBlock]) -> str:
         """Determine the heading level (H1, H2, H3) based on font size and context."""
         
-        # Get all font sizes larger than body text
-        heading_sizes = sorted(set([
-            b.font_size for b in all_blocks 
-            if b.font_size > body_text_size * self.heading_size_threshold
-        ]), reverse=True)
+        # Get all font sizes larger than body text, excluding title
+        title_text = self.extract_document_title(all_blocks).strip()
+        
+        heading_sizes = []
+        for b in all_blocks:
+            if (b.font_size > body_text_size * self.heading_size_threshold and 
+                b.text.strip() != title_text and
+                len(b.text.strip()) >= self.min_heading_length):
+                heading_sizes.append(b.font_size)
+        
+        # Remove duplicates and sort in descending order
+        heading_sizes = sorted(set(heading_sizes), reverse=True)
         
         if not heading_sizes:
             return "H1"
