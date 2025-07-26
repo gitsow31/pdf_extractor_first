@@ -212,6 +212,16 @@ class PDFOutlineExtractor:
         if 10 <= text_length <= 80:
             score += 0.1
         
+        # Special patterns that suggest headings (numbers, sections)
+        text = block.text.strip()
+        if any(pattern in text.lower() for pattern in ['introduction', 'conclusion', 'methodology', 'results', 'background']):
+            score += 0.2
+        
+        # Numbered sections
+        import re
+        if re.match(r'^\d+\.', text) or re.match(r'^\d+\.\d+', text):
+            score += 0.2
+        
         return min(score, 1.0)
     
     def determine_heading_level(self, block: TextBlock, body_text_size: float, 
