@@ -46,7 +46,7 @@ class PDFOutlineExtractor:
     def __init__(self):
         self.min_heading_length = 3
         self.max_heading_length = 200
-        self.heading_size_threshold = 1.2  # Font size must be at least 20% larger than body text
+        self.heading_size_threshold = 1.1  # Font size must be at least 10% larger than body text
         
     def extract_text_blocks(self, pdf_path: str) -> List[TextBlock]:
         """Extract all text blocks with their properties from PDF."""
