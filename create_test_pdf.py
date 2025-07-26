@@ -16,25 +16,25 @@ def create_test_pdf():
     # Title (largest font)
     title_text = "Sample Document for Testing"
     title_point = fitz.Point(50, 100)
-    page1.insert_text(title_point, title_text, fontsize=24, fontname="helv-bold")
+    page1.insert_text(title_point, title_text, fontsize=24, color=(0, 0, 0))
     
     # H1 heading
     h1_point = fitz.Point(50, 180)
-    page1.insert_text(h1_point, "1. Introduction", fontsize=18, fontname="helv-bold")
+    page1.insert_text(h1_point, "1. Introduction", fontsize=18, color=(0, 0, 0))
     
     # Body text
     body_point = fitz.Point(50, 220)
     body_text = "This is a sample document created to test the PDF outline extractor. The document contains various heading levels to demonstrate the extraction capabilities."
-    page1.insert_text(body_point, body_text, fontsize=12, fontname="helv")
+    page1.insert_text(body_point, body_text, fontsize=12, color=(0, 0, 0))
     
     # H2 heading
     h2_point = fitz.Point(50, 280)
-    page1.insert_text(h2_point, "1.1 Background", fontsize=15, fontname="helv-bold")
+    page1.insert_text(h2_point, "1.1 Background", fontsize=15, color=(0, 0, 0))
     
     # More body text
     body2_point = fitz.Point(50, 320)
     body2_text = "This section provides background information about the document structure and purpose."
-    page1.insert_text(body2_point, body2_text, fontsize=12, fontname="helv")
+    page1.insert_text(body2_point, body2_text, fontsize=12, color=(0, 0, 0))
     
     # Page 2 - More content
     page2 = doc.new_page()
