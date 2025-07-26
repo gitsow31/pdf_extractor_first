@@ -41,25 +41,25 @@ def create_test_pdf():
     
     # H1 heading
     h1_p2_point = fitz.Point(50, 100)
-    page2.insert_text(h1_p2_point, "2. Methodology", fontsize=18, fontname="helv-bold")
+    page2.insert_text(h1_p2_point, "2. Methodology", fontsize=18, color=(0, 0, 0))
     
     # Body text
     body_p2_point = fitz.Point(50, 140)
     body_p2_text = "This section describes the methodology used in the analysis."
-    page2.insert_text(body_p2_point, body_p2_text, fontsize=12, fontname="helv")
+    page2.insert_text(body_p2_point, body_p2_text, fontsize=12, color=(0, 0, 0))
     
     # H2 heading
     h2_p2_point = fitz.Point(50, 200)
-    page2.insert_text(h2_p2_point, "2.1 Data Collection", fontsize=15, fontname="helv-bold")
+    page2.insert_text(h2_p2_point, "2.1 Data Collection", fontsize=15, color=(0, 0, 0))
     
     # H3 heading
     h3_p2_point = fitz.Point(70, 240)
-    page2.insert_text(h3_p2_point, "2.1.1 Survey Design", fontsize=13, fontname="helv-bold")
+    page2.insert_text(h3_p2_point, "2.1.1 Survey Design", fontsize=13, color=(0, 0, 0))
     
     # Body text
     body3_p2_point = fitz.Point(70, 280)
     body3_p2_text = "The survey was designed to collect comprehensive data about user preferences."
-    page2.insert_text(body3_p2_point, body3_p2_text, fontsize=12, fontname="helv")
+    page2.insert_text(body3_p2_point, body3_p2_text, fontsize=12, color=(0, 0, 0))
     
     # Page 3 - Results
     page3 = doc.new_page()
