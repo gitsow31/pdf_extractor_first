@@ -117,8 +117,9 @@ class PDFOutlineExtractor:
         body_size = size_counter.most_common(1)[0][0]
         
         # Debug: log font size distribution
-        logger.debug(f"Font size distribution: {dict(size_counter.most_common())}")
-        logger.debug(f"Detected body text size: {body_size}")
+        if logger.isEnabledFor(logging.DEBUG):
+            logger.debug(f"Font size distribution: {dict(size_counter.most_common())}")
+            logger.debug(f"Detected body text size: {body_size}")
         
         return body_size
     
